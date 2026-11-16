@@ -80,8 +80,14 @@
     </AdditionalFiles>
   </ItemGroup>
   <ItemGroup>
-    <!-- Suppress AutoMapper advisory, set the max depth for mappings as a remediation -->
+    <!--
+      Suppress AutoMapper DoS advisories.
+      (Not reachable, no self-ref or dynamic expanded members etc. - not an issue)
+      besides: MaxDepth is also set on the DI mapper as defense in depth.
+    -->
     <NuGetAuditSuppress Include="https://github.com/advisories/GHSA-rvv3-g6hj-g44x" />
+    <NuGetAuditSuppress Include="https://github.com/advisories/GHSA-gpwp-5797-mjff" />
+    <NuGetAuditSuppress Include="https://github.com/advisories/GHSA-6vhm-j9h7-f9gh" />
   </ItemGroup>
   <ItemGroup>
     <PackageReference Include="Autofac" Version="4.6.1" />
